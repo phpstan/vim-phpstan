@@ -27,3 +27,7 @@ Using [vim-plug](https://github.com/junegunn/vim-plug):
 You can configure the level PHPStan uses. By default the level is 2.
 
 `let g:phpstan_analyse_level = 4` in your `.vimrc` file to change the level to fit your needs.
+
+# Assumptions
+
+This plugin assumes that the `phpstan` executable is available in the `$PATH`.
