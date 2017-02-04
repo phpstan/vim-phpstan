@@ -1,0 +1,40 @@
+#! /usr/bin/php
+
+<?php
+$stdin = file_get_contents('php://stdin', 'r');
+
+$lines = explode("\n", $stdin);
+
+$lines = preg_grep('~[a-z]+~', $lines);
+
+$lines = array_map('trim', $lines);
+
+$output = '';
+$currentFile = '';
+foreach ($lines as $line) {
+    $file = [];
+    $lineNumberError = [];
+    $error = [];
+    $isFileLine = preg_match('~^Line(.+)~', $line, $file);
+    $isNumberErrorLine = preg_match('~^(\d+)(.*)~', $line, $lineNumberError);
+    $isErrorLine = preg_match('~^([a-zA-Z].+)~', $line, $error);
+
+    if (!$isFileLine && !$isNumberErrorLine && !$isErrorLine) {
+        continue;
+    }
+
+    if ($isFileLine) {
+        $currentFile = trim(array_pop($file));
+        continue;
+    } else if ($isNumberErrorLine && !$isErrorLine) {
+        $errorMessage = trim(array_pop($lineNumberError));
+        $lineNumber = trim(array_pop($lineNumberError));
+    } else if ($isErrorLine && !$isNumberErrorLine) {
+        $errorMessage = trim(array_pop($error));
+        $lineNumber = 0;
+    }
+
+    $output .= "File: " . $currentFile . ", line: " . $lineNumber . ", error: " . $errorMessage . PHP_EOL;
+}
+
+echo trim($output);
