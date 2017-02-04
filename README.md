@@ -14,13 +14,13 @@ Call the `PHPStanAnalyse` command and pass the directories you want analysed as 
 
 And the quickfix list will be populated with something like this:
 
-![vim phpstan quickfix screenshot](https://github.com/robertbasic/vim-phpstan/blob/master/vim-phpstan-qf.png)
+![vim phpstan quickfix screenshot](https://github.com/phpstan/vim-phpstan/blob/master/vim-phpstan-qf.png)
 
 # Installation
 
 Using [vim-plug](https://github.com/junegunn/vim-plug):
 
-`Plug 'robertbasic/vim-phpstan'`
+`Plug 'phpstan/vim-phpstan'`
 
 # Configuration
 
