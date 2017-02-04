@@ -31,3 +31,9 @@ You can configure the level PHPStan uses. By default the level is 2.
 # Assumptions
 
 This plugin assumes that the `phpstan` executable is available in the `$PATH`.
+
+# Authors
+
+| Authors          |                               |
+|------------------|-------------------------------|
+| Robert Basic     | https://github.com/robertbasic|
